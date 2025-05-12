@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         screw 9minecraft
 // @namespace    http://tampermonkey.net/
-// @version      1.2.0
+// @version      2.0.0
 // @description  9minecraft is known to being unsafe so I'm handling it by redirecting to safer sources
 // @author       pixelyloaf
 // @match        *://*.9minecraft.net/*

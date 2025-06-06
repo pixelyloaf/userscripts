@@ -1,0 +1,27 @@
+name: "Close stale issues and PRs"
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # runs daily at midnight UTC
+  workflow_dispatch: # allows manual trigger
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/stale@v9
+        with:
+          # general settings
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          days-before-stale: 30
+          days-before-close: 7
+
+          # for issues
+          stale-issue-message: "This issue has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs."
+          close-issue-message: "Closing this issue due to inactivity."
+          exempt-issue-labels: "nostale"
+
+          # for pull requests
+          stale-pr-message: "This PR has been marked as stale due to inactivity."
+          close-pr-message: "Closing this PR due to inactivity."
